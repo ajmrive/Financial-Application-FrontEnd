@@ -2,7 +2,7 @@
 
 FinancialApplicationFront.Routers = FinancialApplicationFront.Routers || {};
 
-(function () {
+(function() {
     'use strict';
 
     FinancialApplicationFront.Routers.Expenses = Backbone.Router.extend({

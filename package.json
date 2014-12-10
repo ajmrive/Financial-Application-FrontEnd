@@ -1,7 +1,9 @@
 {
   "name": "financialapplicationfront",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "halogen-model": "^1.0.2"
+  },
   "devDependencies": {
     "apache-server-configs": "^2.8.0",
     "grunt": "^0.4.5",

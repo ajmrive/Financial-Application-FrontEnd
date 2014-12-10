@@ -5,3 +5,4 @@ test/temp
 app/bower_components
 .tmp
 test/bower_components/
+/HTML5Application/nbproject/private/
