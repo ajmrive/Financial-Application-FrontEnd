@@ -21,8 +21,8 @@ FinancialApplicationFront.Models = FinancialApplicationFront.Models || {};
         getCustomUrl: function(method) {
             switch (method) {
                 case 'read':
-
-                    if (typeof this.id === 'undefined') {
+                    console.log(this.id);
+                    if (typeof this.id === 'undefined' || this.id === null) {
                         return this.url;
                         break;
                     }

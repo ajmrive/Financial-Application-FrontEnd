@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/main2.css">
         <!-- endbuild -->
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
@@ -22,77 +22,71 @@
 
         <div class="container">
             <div class="header">
-                <ul class="nav nav-pills pull-right">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-                <h3 class="text-muted">FinancialApplicationFront</h3>
+
+                <h3 class="text-muted">Financial Application</h3>
             </div>
 
             <div class="jumbotron">
-                <h1>'Allo, 'Allo!</h1>
-                <p class="lead">Always a pleasure scaffolding your apps.</p>
+                <h1>Hi!</h1>
+                <p class="lead">This is a mini app for using backbone.js and Apigility API.</p>
                 <p><a class="btn btn-lg btn-success" href="#">Splendid!</a></p>
             </div>
 
-            <div class="row text-left">
-                <div class="col-md-offset-4">
-                    <h2>Now Try,</h2>
-                    <h4><b>yo backbone:router</b> &lt;router&gt;</h4>
-                    <h4><b>yo backbone:collection</b> &lt;collection&gt;</h4>
-                    <h4><b>yo backbone:model </b> &lt;model&gt;</h4>
-                    <h4><b>yo backbone:view </b> &lt;view&gt;</h4>
+            <div class="row">
+                <div class="col-md-offset-3">
+                    <h2>Expenses on BD!</h2>
+                    <div id="container-datas"></div>
                 </div>
             </div>
 
-            <div class="row marketing">
-                <div class="col-lg-6">
-                    <h4>HTML5 Boilerplate</h4>
-                    <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
-
-                    <h4>Bootstrap</h4>
-                    <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
-
-                    <h4>Modernizr</h4>
-                    <p>Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.</p>
-
+            <form class="form-horizontal" id="formExtense">
+                <div class="form-group">
+                    <label for="inputDescription" class="col-sm-2 control-label">Description</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputDescription" placeholder="Description">
+                    </div>
                 </div>
-                <div class="col-lg-6">
-                    <h4>Backbone.js</h4>
-                    <p>Backbone.js gives structure to web applications by providing models, collections, views and connects it all to your existing API over a RESTful JSON interface.</p>
-
-                    <h4>Underscore.js</h4>
-                    <p>Underscore.js is a utility-belt library for JavaScript that provides a lot of the functional programming support</p>
-
-
+                <div class="form-group">
+                    <label for="inputAmount" class="col-sm-2 control-label">Amount</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="inputAmount" placeholder="Amount">
+                    </div>
                 </div>
-            </div>
+                
+<!--                //<input id="btn_login" type="button" name="Save" class="btn btn-lg btn-success" value="create">-->
+                <button id="save-button" type="submit" class="btn">Save</button>
+                
+            </form>
 
-            <div class="footer">
-                <p>♥ from the Yeoman team</p>
-            </div>
 
         </div>
 
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
+            (function(b, o, i, l, e, r) {
+                b.GoogleAnalyticsObject = l;
+                b[l] || (b[l] =
+                        function() {
+                            (b[l].q = b[l].q || []).push(arguments)
+                        });
+                b[l].l = +new Date;
+                e = o.createElement(i);
+                r = o.getElementsByTagName(i)[0];
+                e.src = '//www.google-analytics.com/analytics.js';
+                r.parentNode.insertBefore(e, r)
+            }(window, document, 'script', 'ga'));
+            ga('create', 'UA-XXXXX-X');
+            ga('send', 'pageview');
         </script>
 
         <!-- build:js scripts/vendor.js -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/lodash/dist/lodash.compat.js"></script>
         <script src="bower_components/backbone/backbone.js"></script>
-<!--        <script src="bower_components/backbone-relational/backbone-relational.js"></script>
-        <script src="bower_components/uri-templates/uri-templates.js"></script>
-        <script src="bower_components/backbone-relational-hal/backbone-relational-hal.js"></script>-->
+        <!--        <script src="bower_components/backbone-relational/backbone-relational.js"></script>
+                <script src="bower_components/uri-templates/uri-templates.js"></script>
+                <script src="bower_components/backbone-relational-hal/backbone-relational-hal.js"></script>-->
         <script src="bower_components/handlebars/handlebars.js"></script>
         <!-- endbuild -->
 
@@ -113,11 +107,11 @@
 
         <!-- build:js({.tmp,app}) scripts/main.js -->
         <script src="scripts/main.js"></script>
-<!--        <script src="scripts/templates.js"></script>-->
+        <!--        <script src="scripts/templates.js"></script>-->
         <script src="scripts/routes/expenses.js"></script>
         <script src="scripts/collections/expenses.js"></script>
         <script src="scripts/models/expenses.js"></script>
         <script src="scripts/views/expenses.js"></script>
         <!-- endbuild -->
-</body>
+    </body>
 </html>

@@ -5,10 +5,7 @@ window.FinancialApplicationFront = {
     Models: {},
     Collections: {},
     Views: {},
-    Routers: function () {
-        'use strict';
-        console.log('Hello from routers!');
-        
+    Routers: function () {       
     },
     init: function () {
         'use strict';
@@ -19,4 +16,5 @@ window.FinancialApplicationFront = {
 $(document).ready(function () {
     'use strict';
     FinancialApplicationFront.init();
+    //var ExpensesForm = new FinancialApplicationFront.Views.ExpensesForm();
 });

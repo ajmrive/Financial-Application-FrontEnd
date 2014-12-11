@@ -19,8 +19,8 @@ FinancialApplicationFront.Routers = FinancialApplicationFront.Routers || {};
 
     expenses_routers.on('route:getExpense', function(id) {
 
-        if (typeof this.id === 'undefined') {
-            id = '';
+        if (typeof id === 'undefined') {
+            id = null;
         }
 
         var Expense = new FinancialApplicationFront.Models.Expenses({id: id});
@@ -32,8 +32,45 @@ FinancialApplicationFront.Routers = FinancialApplicationFront.Routers || {};
                 console.log("error!!");
             },
             success: function(response) {
-                console.log(response);
-                console.log("no error");
+                console.log(id);
+                if (id !== null) {
+                    var expense_response = new FinancialApplicationFront.Models.Expenses({
+                        id: response.attributes.id,
+                        amount: response.attributes.amount,
+                        description: response.attributes.description
+                    });
+
+                    console.log(expense_response);
+                    var modelView = new FinancialApplicationFront.Views.Expenses(expense_response);
+                            
+                }
+                else {
+                    var Expense = new FinancialApplicationFront.Models.Expenses({});
+                    var Expenses = Backbone.Collection.extend({
+                        model: Expense
+                    });
+
+                    var expenses_length = response.attributes._embedded.expenses.length;
+                    var expenses_ar_tmp = [];
+
+                    for (var i = 0; i < expenses_length; i++) {
+                        var tmp_expense = response.attributes._embedded.expenses[i];
+
+                        var expense_response = new FinancialApplicationFront.Models.Expenses({
+                            id: tmp_expense.id,
+                            amount: tmp_expense.amount,
+                            description: tmp_expense.description
+                        });
+
+                        expenses_ar_tmp.push(expense_response);
+
+                    }
+
+                    var myExpenses = new Expenses(expenses_ar_tmp);
+
+                    var modelView = new FinancialApplicationFront.Views.Expenses(myExpenses);
+
+                }
             }
         });
 
@@ -43,7 +80,7 @@ FinancialApplicationFront.Routers = FinancialApplicationFront.Routers || {};
     expenses_routers.on('route:setExpense', function() {
         var Expense = new FinancialApplicationFront.Models.Expenses({description: "Backbone Book 43", amount: 2});
         Expense.save({}, {
-            dataType: 'jsonp',
+//            dataType: 'jsonp',
             success: function(model, respose, options) {
                 console.log("The model has been saved to the server");
             },

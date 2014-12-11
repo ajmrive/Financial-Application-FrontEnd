@@ -5,6 +5,10 @@
         <group>
             <file>file:/C:/wamp/www/financial_application_front/Gruntfile.js</file>
             <file>file:/C:/wamp/www/financial_application_front/app/index.html</file>
+            <file>file:/C:/wamp/www/financial_application_front/app/scripts/views/expenses.js</file>
+            <file>file:/C:/wamp/www/financial_application_front/app/scripts/templates/expenses.hbs</file>
+            <file>file:/C:/wamp/www/financial_application_front/app/scripts/routes/expenses.js</file>
+            <file>file:/C:/wamp/www/financial_application_front/app/styles/main2.css</file>
             <file>file:/C:/wamp/www/financial_application_front/app/scripts/models/expenses.js</file>
         </group>
     </open-files>
