@@ -5,7 +5,11 @@ window.FinancialApplicationFront = {
     Models: {},
     Collections: {},
     Views: {},
-    Routers: {},
+    Routers: function () {
+        'use strict';
+        console.log('Hello from routers!');
+        
+    },
     init: function () {
         'use strict';
         console.log('Hello from Backbone!');
