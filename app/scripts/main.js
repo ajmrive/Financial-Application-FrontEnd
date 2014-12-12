@@ -16,5 +16,5 @@ window.FinancialApplicationFront = {
 $(document).ready(function () {
     'use strict';
     FinancialApplicationFront.init();
-    //var ExpensesForm = new FinancialApplicationFront.Views.ExpensesForm();
+    var ExpensesForm = new FinancialApplicationFront.Views.ExpensesForm();
 });

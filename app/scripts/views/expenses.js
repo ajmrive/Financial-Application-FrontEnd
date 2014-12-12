@@ -7,16 +7,13 @@ FinancialApplicationFront.Views = FinancialApplicationFront.Views || {};
 //        template: JST['app/scripts/templates/expenses.hbs'],
 //
 //        tagName: 'div',
-        el: $('#container-datas'),
+        el: $('#table-expenses-body'),
         template: _.template(
-                '<article>' +
-                '<table class="table table-condensed">' +
                 '<tr>' +
                 '<td class="active"><%= id %></td>' +
                 '<td class="active"><%= description %></td>' +
                 '<td class="active"><%= amount %></td>' +
-                '</table>' +
-                '</article>'
+                '</tr>'
                 ),
         initialize: function() {
             this.render();
@@ -26,7 +23,7 @@ FinancialApplicationFront.Views = FinancialApplicationFront.Views || {};
             var viewModel = this.attributes;
             console.log(viewModel);
             // render the function using substituting the varible 'who' for 'world!'.
-            this.$el.html(this.template(
+            this.$el.append(this.template(
                     {
                         id: viewModel.id,
                         amount: viewModel.amount,
@@ -37,13 +34,24 @@ FinancialApplicationFront.Views = FinancialApplicationFront.Views || {};
         }
 
     });
+    
+    FinancialApplicationFront.Views.ExpensesClean = Backbone.View.extend({
+        el: $('#table-expenses-body'),
+        initialize: function() {
+            this.render();
+        },
+        render: function() {
+            this.$el.html('');
+        }
+    });
+    
     FinancialApplicationFront.Views.ExpensesForm = Backbone.View.extend({
         el: '#formExtense',
         initialize: function() {
             console.log("initialize");
         },
         events: {
-            'submit': 'submitForm'
+            'submit #save-button-form': 'submitForm'
         },
         submitForm: function(e) {
             var model = this.model;

@@ -9,13 +9,18 @@ FinancialApplicationFront.Routers = FinancialApplicationFront.Routers || {};
         routes: {
             "read/:id": "getExpense",
             "read": "getExpense",
-            "create": "setExpense"
-
+            "create": "setExpense",
+            "clean": "cleanTable"
         }
 
     });
 
     var expenses_routers = new FinancialApplicationFront.Routers.Expenses();
+
+    expenses_routers.on('route:cleanTable', function(id) {
+        //clean table
+        var modelViewClean = new FinancialApplicationFront.Views.ExpensesClean();
+    });
 
     expenses_routers.on('route:getExpense', function(id) {
 
@@ -41,10 +46,16 @@ FinancialApplicationFront.Routers = FinancialApplicationFront.Routers || {};
                     });
 
                     console.log(expense_response);
+                    //clean table
+                    var modelViewClean = new FinancialApplicationFront.Views.ExpensesClean();
                     var modelView = new FinancialApplicationFront.Views.Expenses(expense_response);
-                            
+
                 }
                 else {
+
+                    //clean table
+                    var modelViewClean = new FinancialApplicationFront.Views.ExpensesClean();
+
                     var Expense = new FinancialApplicationFront.Models.Expenses({});
                     var Expenses = Backbone.Collection.extend({
                         model: Expense
@@ -63,12 +74,12 @@ FinancialApplicationFront.Routers = FinancialApplicationFront.Routers || {};
                         });
 
                         expenses_ar_tmp.push(expense_response);
-
+                        var modelView = new FinancialApplicationFront.Views.Expenses(expense_response);
                     }
 
-                    var myExpenses = new Expenses(expenses_ar_tmp);
+                    //var myExpenses = new Expenses(expenses_ar_tmp);
 
-                    var modelView = new FinancialApplicationFront.Views.Expenses(myExpenses);
+                    //var modelView = new FinancialApplicationFront.Views.Expenses(myExpenses);
 
                 }
             }
