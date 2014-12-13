@@ -89,7 +89,7 @@ FinancialApplicationFront.Routers = FinancialApplicationFront.Routers || {};
 
 
     expenses_routers.on('route:setExpense', function() {
-        var Expense = new FinancialApplicationFront.Models.Expenses({description: "Backbone Book 43", amount: 2});
+        var Expense = new FinancialApplicationFront.Models.Expenses({description: "Model test", amount: 1});
         Expense.save({}, {
 //            dataType: 'jsonp',
             success: function(model, respose, options) {

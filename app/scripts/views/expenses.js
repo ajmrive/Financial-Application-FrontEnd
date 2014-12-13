@@ -56,9 +56,9 @@ FinancialApplicationFront.Views = FinancialApplicationFront.Views || {};
         initialize: function() {
             console.log("initialize");
             console.log(this);
-
-            $('#save-button-form').on('click', function() {
-
+            var expenseForm = this;
+            $('#inputDescription').on('change', function() {
+                 expenseForm.$el.find('#inputDescriptionError').hide();
 //                var inputDescription = this.find('#inputDescription');
 //                if (){
 //                    
@@ -77,12 +77,19 @@ FinancialApplicationFront.Views = FinancialApplicationFront.Views || {};
         },
         submitForm: function(e) {
             console.log(this);
+            var expenseForm = this;
             var newExpense = new FinancialApplicationFront.Models.Expenses();
 
-            this.$el.find('#inputDescription').each(function() {
+            expenseForm.$el.find('#inputDescription').each(function() {
+                console.log(this.value );
+                if (this.value === '' || this.value === null){
+                    expenseForm.$el.find('#inputDescriptionError').show();
+                    console.log('The description is empty!');
+                    throw new Error("The description is empty!");;
+                }
                 newExpense.set('description', this.value);
             });
-            this.$el.find('#inputAmount').each(function() {
+            expenseForm.$el.find('#inputAmount').each(function() {
                 newExpense.set('amount', this.value);
             });
             console.log(newExpense);
@@ -91,6 +98,8 @@ FinancialApplicationFront.Views = FinancialApplicationFront.Views || {};
 //            dataType: 'jsonp',
                 success: function(model, respose, options) {
                     console.log(model);
+                    Backbone.history.navigate('read');
+                    Backbone.history.loadUrl();
                     console.log("The model has been saved to the server");
                 },
                 error: function(model, xhr, options) {
