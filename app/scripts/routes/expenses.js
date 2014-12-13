@@ -10,7 +10,7 @@ FinancialApplicationFront.Routers = FinancialApplicationFront.Routers || {};
             "read/:id": "getExpense",
             "read": "getExpense",
             "create": "setExpense",
-            "clean": "cleanTable"
+            "home": "cleanTable"
         }
 
     });

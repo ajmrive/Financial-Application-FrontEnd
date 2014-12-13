@@ -34,7 +34,10 @@ FinancialApplicationFront.Views = FinancialApplicationFront.Views || {};
         }
 
     });
-    
+
+    /**
+     * 
+     */
     FinancialApplicationFront.Views.ExpensesClean = Backbone.View.extend({
         el: $('#table-expenses-body'),
         initialize: function() {
@@ -44,33 +47,50 @@ FinancialApplicationFront.Views = FinancialApplicationFront.Views || {};
             this.$el.html('');
         }
     });
-    
+
+    /**
+     * 
+     */
     FinancialApplicationFront.Views.ExpensesForm = Backbone.View.extend({
         el: '#formExtense',
         initialize: function() {
             console.log("initialize");
+            console.log(this);
+
+            $('#save-button-form').on('click', function() {
+
+//                var inputDescription = this.find('#inputDescription');
+//                if (){
+//                    
+//                }
+//
+//                this.find('#inputAmount').each(function() {
+//                    newExpense.set(this.name, this.value);
+//                });
+
+            });
+
         },
         events: {
-            'submit #save-button-form': 'submitForm'
+            //'submit #save-button-form': 'submitForm',
+            'click #save-button-form': 'submitForm'
         },
         submitForm: function(e) {
-            var model = this.model;
+            console.log(this);
+            var newExpense = new FinancialApplicationFront.Models.Expenses();
 
-            this.$el.find('input[inputDescrption]').each(function() {
-                    model.set(this.name, this.value);
+            this.$el.find('#inputDescription').each(function() {
+                newExpense.set('description', this.value);
             });
-            this.$el.find('input[inputAmount]').each(function() {
-                    model.set(this.name, this.value);
+            this.$el.find('#inputAmount').each(function() {
+                newExpense.set('amount', this.value);
             });
-            this.model.save();
-//            console.log(this);
-//            console.log(e);
-//            if (e.which === 13) // enter key
-//                this.submit();
-            var Expense = new FinancialApplicationFront.Models.Expenses({description: "Backbone Book 43", amount: 2});
-            Expense.save({}, {
+            console.log(newExpense);
+
+            newExpense.save({}, {
 //            dataType: 'jsonp',
                 success: function(model, respose, options) {
+                    console.log(model);
                     console.log("The model has been saved to the server");
                 },
                 error: function(model, xhr, options) {
