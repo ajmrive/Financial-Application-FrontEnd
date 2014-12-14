@@ -59,15 +59,11 @@ FinancialApplicationFront.Views = FinancialApplicationFront.Views || {};
             var expenseForm = this;
             $('#inputDescription').on('change', function() {
                  expenseForm.$el.find('#inputDescriptionError').hide();
-//                var inputDescription = this.find('#inputDescription');
-//                if (){
-//                    
-//                }
-//
-//                this.find('#inputAmount').each(function() {
-//                    newExpense.set(this.name, this.value);
-//                });
-
+                 expenseForm.$el.find('#inputAmountError').hide();
+            });
+            $('#inputAmount').on('change', function() {
+                 expenseForm.$el.find('#inputAmountError').hide();
+                 expenseForm.$el.find('#inputDescriptionError').hide();
             });
 
         },
@@ -81,18 +77,22 @@ FinancialApplicationFront.Views = FinancialApplicationFront.Views || {};
             var newExpense = new FinancialApplicationFront.Models.Expenses();
 
             expenseForm.$el.find('#inputDescription').each(function() {
-                console.log(this.value );
                 if (this.value === '' || this.value === null){
                     expenseForm.$el.find('#inputDescriptionError').show();
-                    console.log('The description is empty!');
                     throw new Error("The description is empty!");;
                 }
                 newExpense.set('description', this.value);
             });
             expenseForm.$el.find('#inputAmount').each(function() {
+                
+                this.value = parseFloat(this.value);
+
+                if (this.value === '' || this.value === null || (isNaN(this.value))){
+                    expenseForm.$el.find('#inputAmountError').show();
+                    throw new Error("The amount must be a number!");;
+                }
                 newExpense.set('amount', this.value);
             });
-            console.log(newExpense);
 
             newExpense.save({}, {
 //            dataType: 'jsonp',
