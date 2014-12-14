@@ -84,9 +84,9 @@ FinancialApplicationFront.Views = FinancialApplicationFront.Views || {};
                 newExpense.set('description', this.value);
             });
             expenseForm.$el.find('#inputAmount').each(function() {
-                
-                this.value = parseFloat(this.value);
-
+                console.log(this.value);
+                this.value = Number(this.value);
+                console.log(this.value);
                 if (this.value === '' || this.value === null || (isNaN(this.value))){
                     expenseForm.$el.find('#inputAmountError').show();
                     throw new Error("The amount must be a number!");;

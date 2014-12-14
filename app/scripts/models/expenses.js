@@ -6,7 +6,9 @@ FinancialApplicationFront.Models = FinancialApplicationFront.Models || {};
     'use strict';
 
     FinancialApplicationFront.Models.Expenses = Backbone.Model.extend({
-        url: 'http://localhost/financial/expenses',
+        //url: 'http://localhost/financial/expenses',
+        url: '/financial_application/public/expenses',
+
         initialize: function() {
             console.log('Expenses has been called...');
 
