@@ -99,5 +99,5 @@ FinancialApplicationFront.Routers = FinancialApplicationFront.Routers || {};
 
 
     // Start Backbone history a necessary step for bookmarkable URL's
-    Backbone.history.start({pushState: true});
+    Backbone.history.start();
 })();
