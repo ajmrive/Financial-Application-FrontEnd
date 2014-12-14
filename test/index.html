@@ -1,31 +1,61 @@
 <!doctype html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>Mocha Spec Runner</title>
-    <link rel="stylesheet" href="bower_components/mocha/mocha.css">
-</head>
-<body>
-    <div id="mocha"></div>
-    <script src="bower_components/mocha/mocha.js"></script>
-    <script>mocha.setup('bdd')</script>
-    <script src="bower_components/chai/chai.js"></script>
-    <script>
-        var assert = chai.assert;
-        var expect = chai.expect;
-        var should = chai.should();
-    </script>
+    <head>
+        <meta charset="utf-8">
+        <title>Mocha Spec Runner</title>
+        <link rel="stylesheet" href="bower_components/mocha/mocha.css">
+    </head>
+    <body>
+        <div id="mocha"></div>
+        <script src="bower_components/mocha/mocha.js"></script>
+        <script>mocha.setup('bdd')</script>
+        <script src="bower_components/chai/chai.js"></script>
+        <script>
+            var assert = chai.assert;
+            var expect = chai.expect;
+            var should = chai.should();
+        </script>
 
-    <!-- include source files here... -->
+        <script src="app/bower_components/jquery/dist/jquery.js"></script>
+        <script src="app/bower_components/lodash/dist/lodash.compat.js"></script>
+        <script src="app/bower_components/backbone/backbone.js"></script>
+        <!--        <script src="bower_components/backbone-relational/backbone-relational.js"></script>
+                <script src="bower_components/uri-templates/uri-templates.js"></script>
+                <script src="bower_components/backbone-relational-hal/backbone-relational-hal.js"></script>-->
+        <script src="app/bower_components/handlebars/handlebars.js"></script>
 
-    <script src="routers/financial.js"></script>
-    <script src="routers/expenses.js"></script>
-    <script src="collections/expenses.js"></script>
-    <script src="models/expenses.js"></script>
-    <script src="views/expenses.js"></script>
-    <!-- include spec files here... -->
-    <script src="spec/test.js"></script>
+        <!-- build:js scripts/plugins.js -->
+        <script src="app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
+        <script src="app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
+        <script src="app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
+        <script src="app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script>
+        <script src="app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
+        <script src="app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script>
+        <script src="app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
+        <script src="app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
+        <script src="app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
+        <script src="app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
+        <script src="app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
+        <script src="app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js"></script>
+        <!-- endbuild -->
 
-    <script>mocha.run()</script>
-</body>
+        <!-- build:js({.tmp,app}) scripts/main.js -->
+        <script src="app/scripts/main.js"></script>
+        <!--        <script src="scripts/templates.js"></script>-->
+        <script src="app/scripts/routes/expenses.js"></script>
+        <script src="app/scripts/collections/expenses.js"></script>
+        <script src="app/scripts/models/expenses.js"></script>
+        <script src="app/scripts/views/expenses.js"></script>
+
+
+        <script src="routers/financial.js"></script>
+        <script src="routers/expenses.js"></script>
+        <script src="collections/expenses.js"></script>
+        <script src="models/expenses.js"></script>
+        <script src="views/expenses.js"></script>
+        <!-- include spec files here... -->
+        <script src="spec/test.js"></script>
+
+        <script>mocha.run()</script>
+    </body>
 </html>

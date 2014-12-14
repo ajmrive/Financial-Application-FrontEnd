@@ -11,12 +11,15 @@ FinancialApplicationFront.Models = FinancialApplicationFront.Models || {};
             console.log('Expenses has been called...');
 
         },
+        defaults: {
+            description: "",
+            amount: 0
+        },
         validate: function(attrs, options) {
         },
         parse: function(response, options) {
             return response;
         },
-
         // Lets create function which will return the custom URL based on the method type
         getCustomUrl: function(method) {
             switch (method) {
@@ -26,7 +29,7 @@ FinancialApplicationFront.Models = FinancialApplicationFront.Models || {};
                         return this.url;
                         break;
                     }
-                    return this.url +'/'+ this.id;
+                    return this.url + '/' + this.id;
                     break;
 
                 case 'create':
@@ -43,39 +46,6 @@ FinancialApplicationFront.Models = FinancialApplicationFront.Models || {};
             return Backbone.sync.apply(this, arguments);
         }
     });
-
-
-    // Lets perform a create operation [CREATE]
-//    var Expense = new FinancialApplicationFront.Models.Expenses({description: "Backbone Book 43", amount: 2});
-//    Expense.save({}, {
-//        dataType: 'jsonp',
-//        success: function(model, respose, options) {
-//            console.log("The model has been saved to the server");
-//        },
-//        error: function(model, xhr, options) {
-//            console.log("Something went wrong while saving the model");
-//        }
-//    });
-
-//    // Now let us try to retrieve a book [READ]
-//    var Expense = new FinancialApplicationFront.Models.Expenses({id: 1});
-//    Expense.fetch({
-//        //dataType: 'jsonp',
-//        //add: true,
-////        crossDomain:true, 
-//        //refresh: true,
-//        reset: true,
-//        
-////        add:true,
-//        // url: "C:/wamp/www/financial_application_front/app/newjson.json",
-//        error: function() {
-//            console.log("error!!");
-//        },
-//        success: function(response) {
-//            console.log(response);
-//            console.log("no error");
-//        }
-//    });
 
 })();
 

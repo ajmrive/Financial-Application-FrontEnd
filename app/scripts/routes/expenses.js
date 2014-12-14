@@ -77,10 +77,6 @@ FinancialApplicationFront.Routers = FinancialApplicationFront.Routers || {};
                         var modelView = new FinancialApplicationFront.Views.Expenses(expense_response);
                     }
 
-                    //var myExpenses = new Expenses(expenses_ar_tmp);
-
-                    //var modelView = new FinancialApplicationFront.Views.Expenses(myExpenses);
-
                 }
             }
         });

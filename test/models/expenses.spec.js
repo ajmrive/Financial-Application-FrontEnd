@@ -7,4 +7,4 @@ describe('Expenses Model', function () {
         this.ExpensesModel = new FinancialApplicationFront.Models.Expenses();
     });
 
-});
+        });
